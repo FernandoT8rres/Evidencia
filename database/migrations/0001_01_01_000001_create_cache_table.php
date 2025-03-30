@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cache', function (Blueprint $table) {
-            $table->string('key')->primary();
-            $table->mediumText('value');
-            $table->integer('expiration');
+            $table->id();
+            $table->string('cliente');
+            $table->string('descripcion');
+            $table->string('key')->nullable()->unique();  // Ahora 'key' es nullable y único
+            $table->timestamps();
         });
 
+        // Si es necesario crear la tabla 'cache_locks'
         Schema::create('cache_locks', function (Blueprint $table) {
             $table->string('key')->primary();
             $table->string('owner');

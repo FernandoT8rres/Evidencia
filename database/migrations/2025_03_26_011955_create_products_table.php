@@ -10,18 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     
-    public function up(): void
-    {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id('IdProduct');
-            $table->string('Name')->nullable(false);  // Esto indica que es obligatorio.
-            $table->string('cliente');
-            $table->text('Descripcion')->nullable();
-            $table->decimal('Price', 10, 2);
-            $table->integer('Stock')->default(0);
-            $table->string('Image')->nullable();
-            $table->timestamps();
-        });
+     public function up(): void
+     {
+         if (!Schema::hasTable('products')) {
+             Schema::create('products', function (Blueprint $table) {
+                 $table->id('IdProduct');
+                 $table->string('Name');
+                 $table->string('cliente');
+                 $table->text('Descripcion')->nullable();
+                 $table->decimal('Price', 8, 2);
+                 $table->integer('Stock')->default(0);
+                 $table->string('Image')->nullable();
+                 $table->timestamps();
+             });
+         }     
         Schema::table('products', function (Blueprint $table) {
             $table->text('descripcion')->after('cliente');
         });

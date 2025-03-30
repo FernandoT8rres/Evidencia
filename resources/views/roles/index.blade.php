@@ -65,7 +65,7 @@
 <body>
     <nav>
         <a href="{{ route('roles.index') }}">Start role</a>
-        <a href="{{ route('roless.create') }}">Create role</a>
+        <a href="{{ route('roles.create') }}">Create role</a>
         <a href="{{ route('roles.index') }}">View all data</a>
     </nav>
 
@@ -100,6 +100,6 @@
 @endif
 
     </table>
-    <a href="{{ route('pedidos.index') }}">Start order</a>
+    <a href="{{ route('pedidos.index') }}">Menu</a>
 </body>
 </html>

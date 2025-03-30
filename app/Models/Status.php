@@ -1,24 +1,19 @@
 <?php
 
+
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    protected $table = 'statuses';
-    protected $primaryKey = 'id_status';
-    public $timestamps = true;
+    use HasFactory;
 
-    protected $fillable = [
-        'status_name',
-    ];
+    protected $table = 'statuses'; // Nombre exacto de la tabla en la BD
+    protected $fillable = ['cliente', 'descripcion'];
 
-    // Relación con Order (Un estado puede tener muchas órdenes)
-    public function orders()
-    {
-        return $this->hasMany(Order::class, 'status_id', 'id_status');
-    }
 }
+
 
 

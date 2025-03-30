@@ -19,7 +19,9 @@ class PedidoController extends Controller
         $request->validate([
             'cliente' => 'required|string|max:255',
             'descripcion' => 'required|string',
+            'monto' => 'required|numeric|min:0',
         ]);
+        
 
         Pedido::create($request->all());
 

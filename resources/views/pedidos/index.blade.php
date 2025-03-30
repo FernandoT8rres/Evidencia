@@ -67,11 +67,11 @@
         <a href="{{ route('pedidos.index') }}">Start order</a>
         <a href="{{ route('pedidos.create') }}">Create order</a>
         <a href="{{ route('pedidos.index') }}">View all data</a>
-        <a href="{{ route('caches.index') }}">Cache</a>
+        <a href="{{ route('cache.index') }}">Cache</a>
         <a href="{{ route('customers.index') }}">Customers</a>
         <a href="{{ route('jobs.index') }}">Jobs</a>
         <a href="{{ route('products.index') }}">Products</a>
-        <a href="{{ route('roles.index') }}">Roles/a>
+        <a href="{{ route('roles.index') }}">Roles</a>
         <a href="{{ route('status.index') }}">Status</a>
         <a href="{{ route('users.index') }}">Users</a>
     </nav>

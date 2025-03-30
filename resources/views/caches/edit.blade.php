@@ -47,7 +47,7 @@
     <form action="{{ route('request.update', $pedido->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <label>Cliente:</label>
+        <label>Cliente ID:</label>
         <input type="text" name="costumer" value="{{ $pedido->costumer }}" required>
         <label>Descripción:</label>
         <textarea name="description" required>{{ $pedido->descripcion }}</textarea>

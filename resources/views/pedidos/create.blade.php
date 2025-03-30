@@ -50,6 +50,8 @@
         <input type="text" name="cliente" required>
         <label>Description:</label>
         <textarea name="descripcion" required></textarea>
+        <label for="monto">Monto:</label>
+        <input type="number" name="monto" id="monto" required>
         <button type="submit">Save</button>
     </form>
 </body>

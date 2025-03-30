@@ -21,6 +21,16 @@ return new class extends Migration
             $table->unsignedInteger('created_at');
         });
 
+        // database/migrations/{timestamp}_create_jobs_table.php
+
+    Schema::create('jobs', function (Blueprint $table) {
+        $table->id();
+
+        $table->string('descripcion');
+        $table->timestamps();
+    });
+
+
         Schema::create('job_batches', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('name');
@@ -53,5 +63,7 @@ return new class extends Migration
         Schema::dropIfExists('jobs');
         Schema::dropIfExists('job_batches');
         Schema::dropIfExists('failed_jobs');
+
     }
+    
 };

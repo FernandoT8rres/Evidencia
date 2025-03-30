@@ -18,7 +18,7 @@
             border-radius: 5px;
         }
         nav a {
-            color: white;
+            color: black;
             margin-right: 15px;
             text-decoration: none;
             font-weight: bold;
@@ -32,6 +32,7 @@
         }
         table th, table td {
             padding: 10px;
+            color: black;
             text-align: left;
             border: 1px solid #dee2e6;
         }
@@ -52,7 +53,7 @@
         }
         a.button {
             background-color: #28a745;
-            color: white;
+            color: black;
             padding: 5px 10px;
             text-decoration: none;
             border-radius: 3px;
@@ -65,43 +66,46 @@
 <body>
     <nav>
     <a href="{{ route('customers.index') }}">Start Customer</a>
-<a href="{{ route('customers.create') }}">Create Customer</a>
-@foreach ($customers as $customer)
-    <a href="{{ route('customers.show', ['customer' => $customer->id]) }}">View customer</a>
+
+<div class="container">
+    <h2>Customer List</h2>
+    <a href="{{ route('customers.create') }}" class="btn btn-primary">Agregar Cliente</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($customers as $customer)
+            <tr>
+            @foreach ($customers as $customer)
+    <tr>
+        <td>{{ $customer->name }}</td>
+        <td>{{ $customer->cliente }}</td>
+        <td>{{ $customer->descripcion }}</td>
+        <td>{{ $customer->number }}</td>
+    </tr>
 @endforeach
 
-
-    </nav>
-
-    <h1>Customer list</h1>
-    <table>
-    <tr>
-        <th>ID</th>
-        <th>Client</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-    
-    @forelse ($customers as $customer)
-        <tr>
-            <td>{{ $customer->id }}</td>
-            <td>{{ $customer->cliente }}</td>
-            <td>{{ $customer->descripcion }}</td>
-            <td>
-            <a href="{{ route('customers.edit', $customer->id) }}" class="button">Edit</a>
-                <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-    @empty
-        <tr>
-            <td colspan="4">No customers available</td>
-        </tr>
-    @endforelse
-</table>
-<a href="{{ route('pedidos.index') }}">Start order</a>
+                <td>
+                    <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-info">Ver</a>
+                    <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-warning">Editar</a>
+                    <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<br>
+<a href="{{ route('pedidos.index') }}">Menu</a>
 </body>
 </html>

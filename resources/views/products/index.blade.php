@@ -65,8 +65,8 @@
 <body>
     <nav>
     <a href="{{ route('products.index') }}">Products</a>
-        <a href="{{ route('product.create') }}">Create product</a>
-        <a href="{{ route('product.show') }}">View all data</a>
+        <a href="{{ route('products.create') }}">Create product</a>
+        <a href="{{ route('products.index') }}">View all data</a>
     </nav>
 
     <h1>products list</h1>
@@ -101,6 +101,6 @@
 @endif
 
     </table>
-    <a href="{{ route('pedidos.index') }}">Start order</a>
+    <a href="{{ route('pedidos.index') }}">Menu</a>
 </body>
 </html>

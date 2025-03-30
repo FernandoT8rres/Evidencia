@@ -10,13 +10,8 @@ class Customer extends Model
 {
     use HasFactory;
 
-    // Agrega los campos que quieres permitir en la asignación masiva
-    protected $fillable = [
-        'name', 
-        'cliente', 
-        'descripcion', 
-        'number',
-    ];
+    protected $fillable = ['name', 'cliente', 'descripcion', 'number'];
+
     public $timestamps = true;  
 }
 

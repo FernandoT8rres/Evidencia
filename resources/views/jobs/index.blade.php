@@ -100,6 +100,6 @@
 @endif
 
     </table>
-    <a href="{{ route('pedidos.index') }}">Start order</a>
+    <a href="{{ route('pedidos.index') }}">Menu</a>
 </body>
 </html>

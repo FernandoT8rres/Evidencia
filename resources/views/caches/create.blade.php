@@ -44,13 +44,24 @@
 </head>
 <body>
     <h1>Create New cache</h1>
-    <form action="{{ route('pedidos.store') }}" method="POST">
-        @csrf
-        <label>Client:</label>
-        <input type="text" name="cliente" required>
-        <label>Description:</label>
-        <textarea name="descripcion" required></textarea>
-        <button type="submit">Save</button>
-    </form>
+    <form action="{{ route('cache.store') }}" method="POST">
+    @csrf
+    <input type="text" name="id" required>
+    <input type="text" name="cliente" required>
+    <input type="text" name="descripcion" required>
+
+    <button type="submit">Guardar</button>
+</form>
+
+@if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 </body>
 </html>

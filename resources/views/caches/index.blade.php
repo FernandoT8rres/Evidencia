@@ -64,9 +64,9 @@
 </head>
 <body>
     <nav>
-        <a href="{{ route('cache.index') }}">Start order</a>
-        <a href="{{ route('cache.create') }}">Create order</a>
-        <a href="{{ route('cache.index') }}">View all data</a>
+        <a href="{{ route('caches.index') }}">Start Cache</a>
+        <a href="{{ route('caches.create') }}">Create order</a>
+        <a href="{{ route('caches.index') }}">View all data</a>
     </nav>
 
     <h1>Cache list</h1>
@@ -100,6 +100,6 @@
 @endif
 
     </table>
-    <a href="{{ route('pedidos.index') }}">Start order</a>
+    <a href="{{ route('pedidos.index') }}">Menu</a>
 </body>
 </html>

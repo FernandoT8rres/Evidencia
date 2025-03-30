@@ -10,7 +10,8 @@ class Pedido extends Model
 
     protected $table = 'pedidos'; // Asegúrate de que coincide con el nombre real
 
-    protected $fillable = ['cliente', 'descripcion']; // Permite asignación masiva
+    protected $fillable = ['cliente', 'descripcion', 'monto'];
+
 
     
 }

@@ -9,14 +9,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // Obtener todos los productos
-        $products = Product::all();
-    
-        // Verificar si hay productos
-        dd($products);  // Aquí deberías ver todos los productos
-    
-        // Pasar los productos a la vista
-        return view('product.index', compact('products'));
+            return view('products.index'); // Asegúrate de que este archivo exista en resources/views/users
+        
     }
     
     
@@ -50,7 +44,17 @@ class ProductController extends Controller
     return redirect()->route('product.index')->with('success', 'Product created successfully');
 }
 
-    
+public function show($id)
+{
+    $product = Product::find($id);
+
+    if (!$product) {
+        return redirect()->route('products.index')->with('error', 'Producto no encontrado.');
+    }
+
+    return view('products.show', compact('product'));
+}
+
 
     // Agrega otros métodos necesarios, como create, store, etc.
 }

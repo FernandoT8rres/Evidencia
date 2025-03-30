@@ -44,7 +44,7 @@
 </head>
 <body>
     <h1>Create New product</h1>
-    <form action="{{ route('product.store') }}" method="POST">
+    <form action="{{ route('products.store') }}" method="POST">
     @csrf
     <!-- Otros campos del formulario -->
     <label>Cliente:</label>

@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Customer;
-use Illuminate\Support\Facades\Log;
+use App\Models\Customer; // Asegúrate de importar el modelo
 
-
-class CustomerController extends Controller
+class CustomersController extends Controller
 {
     public function index()
     {
-        // Obtener todos los clientes
-        $costumers = Customer::all();
-        
-        // Pasar la variable a la vista
-        return view('customers.show', compact('costumers'));
+        $customers = Customer::all();
+        return view('customers.index', compact('customers'));
     }
+
+
     public function show($id)
     {
         // Buscar el cliente por el ID
@@ -75,14 +72,16 @@ public function edit($id)
     }
     // app/Http/Controllers/CustomerController.php
     public function store(Request $request)
-    {
-        // Validar los datos
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'cliente' => 'required|string|max:255',
-            'descripcion' => 'nullable|string',
-            'number' => 'nullable|string|max:20',
-        ]);
+{
+    $customer = Customer::create([
+        'name' => $request->name,
+        'cliente' => $request->cliente,
+        'descripcion' => $request->descripcion,
+        'number' => $request->number
+    ]);
+
+    return redirect()->route('customers.index');
+
     
         // Verificar los datos validados
         dd($validated); // Esto te ayudará a ver los datos validados
