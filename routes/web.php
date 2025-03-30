@@ -127,3 +127,4 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('products
 Route::resource('products', ProductController::class);
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
+Route::get('/cache', [CacheController::class, 'index'])->name('cache.index');
